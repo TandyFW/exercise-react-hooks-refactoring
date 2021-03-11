@@ -6,16 +6,21 @@ import CarsContext from './CarsContext';
 
 function Provider({ children }) {
 
-  const [cars, setCars] = useState({red: false, blue: false, yellow: false});
+  // const [cars, setCars] = useState({red: false, blue: false, yellow: false});
+  const [redCar, setRedCar] = useState(false);
+  const [blueCar, setBlueCar] = useState(false);
+  const [yellowCar, setYellowCar] = useState(false);
+  // const moveCar = (car, side) => {
+  //   setCars({ ...cars, cars: { [car]: side } });
+  // };
 
-  const moveCar = (car, side) => {
-    setCars({ ...cars, cars: { [car]: side } });
-  };
-  const context = {
-    cars,
-    setCars,
-    moveCar,
-  };
+  const moveCar = (car) => {
+    car === 'red' && setRedCar(!redCar);
+    car === 'blue' && setBlueCar(!blueCar);
+    car === 'yellow' && setYellowCar(!yellowCar);
+  }
+
+  const context = { redCar, blueCar, yellowCar, moveCar };
 
   return (
     <CarsContext.Provider value={context}>

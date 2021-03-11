@@ -1,13 +1,13 @@
 // src/Cars.jsx
 
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import CarsContext from './context/CarsContext';
 import carBlue from './images/carBlue.jpeg';
 import carRed from './images/carRed.jpeg';
 import carYellow from './images/carYellow.jpeg';
 
 function Cars() {
-  const {cars, setCars, moveCar} = useState(CarsContext);
+  const {redCar, blueCar, yellowCar, moveCar} = useContext(CarsContext);
 
   return (
     <div>
@@ -18,7 +18,7 @@ function Cars() {
           alt="red car"
         />
         <button
-          onClick={() => moveCar('redCar', !redCar)}
+          onClick={() => moveCar('red')}
           type="button"
         >
           Move
@@ -31,7 +31,7 @@ function Cars() {
           alt="blue car"
         />
         <button
-          onClick={() => moveCar('blueCar', !blueCar)}
+          onClick={() => moveCar('blue')}
           type="button"
         >
           Move
@@ -44,7 +44,7 @@ function Cars() {
           alt="yellow car"
         />
         <button
-          onClick={() => moveCar('yellowCar', !yellowCar)}
+          onClick={() => moveCar('yellow')}
           type="button"
         >
           Move
